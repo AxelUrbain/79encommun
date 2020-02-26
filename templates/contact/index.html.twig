@@ -1,0 +1,23 @@
+{% extends 'menu/main.html.twig' %}
+
+{% block title %}Contact Deux-Sèvres en commun{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="title-section mt-4">Nous contacter</h2>
+        {{ form_start(form) }}
+            <div class="row">
+                <div class="col">
+                    {{ form_row(form.firstname) }}
+                </div>
+                <div class="col">
+                    {{ form_row(form.lastname) }}
+                </div>
+            </div>
+            {{ form_row(form.mail) }}
+            {{ form_row(form.object) }}
+            {{ form_row(form.message) }}
+            <button type="submit" class="btn btn-outline-dark mb-4">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

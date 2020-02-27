@@ -1,14 +1,30 @@
 security:
+    encoders:
+        App\Entity\User: auto
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
+        user:
+            entity:
+                class: App\Entity\User
+                property: mail
+
         users_in_memory: { memory: null }
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            provider: user
+
+            form_login:
+                check_path: app_login_check
+                login_path: app_login
+            logout:
+                path: app_logout
+                target: home
             anonymous: lazy
-            provider: users_in_memory
+
+    role_hierarchy: ROLE_USER
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication

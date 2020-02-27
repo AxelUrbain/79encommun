@@ -1,0 +1,31 @@
+{% extends 'home/index.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron" style="text-align: center">
+        <div class="row">
+            <div class="col-md-4 col-lg-4"></div>
+            <div class="col-md-4 col-lg-4">
+                <h2 class="display-3">Inscription</h2>
+            </div>
+            <div class="col-md-4 col-lg-4"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-4"></div>
+            <div class="col-md-4 col-lg-4">
+                {{ form_start(form) }}
+                {{ form_row(form.firstname,{'attr':{'placeholder' : 'Prénom ...'}}) }}
+                {{ form_row(form.lastname,{'attr':{'placeholder' : 'Nom ...'}}) }}
+                {{ form_row(form.city,{'attr':{'placeholder' : 'Thouars'}}) }}
+                {{ form_row(form.address,{'attr':{'placeholder' : '3 rue de la fontaine'}}) }}
+                {{ form_row(form.mail,{'attr':{'placeholder' : 'Email ...'}}) }}
+                {{ form_row(form.password,{'attr':{'placeholder' : 'Mot de passe ...'}}) }}
+                <button type="submit" class="btn btn-lg btn-block btn-outline-success">Inscription !</button>
+                {{ form_end(form) }}
+            </div>
+            <div class="col-md-4 col-lg-4"></div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12" style="margin-top: 25px"></div>
+{% endblock %}

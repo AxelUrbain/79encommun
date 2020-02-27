@@ -33,7 +33,7 @@ class User implements UserInterface
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
@@ -174,7 +174,7 @@ class User implements UserInterface
      */
     public function getUsername()
     {
-        return (string) $this->mail;
+        return  $this->mail;
     }
 
     /**

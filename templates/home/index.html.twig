@@ -14,36 +14,18 @@
             </div>
         </div>
         <div class="row mt-2">
-            <div class="col-4">
-                <div class="card card-actu bg-light mb-3" style="max-width: 20rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">Secondary card title</h4>
-                        <img class="img-fluid" src="https://images.lanouvellerepublique.fr/image/upload/t_1020w/5e250df2cd61532a558b46cb.jpg" alt="">
-                        <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn btn-primary" href="">Voir plus</a>
+            {% for article in articles %}
+                <div class="col-4">
+                    <div class="card card-actu bg-light mb-3" style="max-width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ article.title }}</h4>
+                            <img class="img-fluid" src="https://images.lanouvellerepublique.fr/image/upload/t_1020w/5e250df2cd61532a558b46cb.jpg" alt="">
+                            <p class="card-text text-justify">{{ article.content|slice(0,200) }} ...</p>
+                            <a class="btn btn-primary" href="{{ path('article_show', {'id': article.id}) }}">Voir plus</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card card-actu bg-light mb-3" style="max-width: 20rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">Secondary card title</h4>
-                        <img class="img-fluid" src="https://images.lanouvellerepublique.fr/image/upload/t_1020w/5e250df2cd61532a558b46cb.jpg" alt="">
-                        <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn btn-primary" href="">Voir plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card card-actu bg-light mb-3" style="max-width: 20rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">Secondary card title</h4>
-                        <img class="img-fluid" src="https://images.lanouvellerepublique.fr/image/upload/t_1020w/5e250df2cd61532a558b46cb.jpg" alt="">
-                        <p class="card-text text-justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a class="btn btn-primary" href="">Voir plus</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

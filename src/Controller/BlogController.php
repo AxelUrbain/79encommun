@@ -9,20 +9,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog", name="blog")
+     * @Route("/blog/{page}", name="blog", defaults={"page": "1"},
+     * methods={"GET"})
      * @param EntityManagerInterface $em
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(EntityManagerInterface $em)
+    public function index($page, EntityManagerInterface $em)
     {
-        $article = $em->getRepository('App:Article')->findBy(
-            array('published' => true),
-            array('created_at' => 'desc')
-        );
+        $currentPath = 'blog';
+
+        $nbPerPage = $this->getParameter('nbPerPage');
+        $articlesPaginator = $em->getRepository('App:Article')->myFindAllWithPaging($page, $nbPerPage);
+
+        $nbTotalPages = intval(ceil(count($articlesPaginator) / $nbPerPage ));
 
         return $this->render('blog/index.html.twig', [
-            'controller_name' => 'BlogController',
-            'articles' => $article
+            'articles' => $articlesPaginator,
+            'nbPerPage' => $nbTotalPages,
+            'page' => $page,
+            'currentPath' => $currentPath
         ]);
     }
 }

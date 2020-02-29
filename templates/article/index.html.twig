@@ -1,47 +1,49 @@
-{% extends 'base.html.twig' %}
+{% extends 'menu/main.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}DSEC - Gestion des articles{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+    <div class="container">
+        <h1>Gestion des articles</h1>
 
-    <table class="table">
-        <thead>
+        <table class="table table-hover">
+            <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Created_at</th>
-                <th>Update_at</th>
-                <th>Author</th>
-                <th>Nb_views</th>
-                <th>Published</th>
-                <th>actions</th>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Création</th>
+                <th>Modification</th>
+                <th>Auteur</th>
+                <th>Vues</th>
+                <th>Publié</th>
+                <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.updateAt ? article.updateAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ article.author }}</td>
-                <td>{{ article.nbViews }}</td>
-                <td>{{ article.published ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.content }}</td>
+                    <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ article.updateAt ? article.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>{{ article.author }}</td>
+                    <td>{{ article.nbViews }}</td>
+                    <td>{{ article.published ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
+                        <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="9">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('article_new') }}">Create new</a>
 
-    <a href="{{ path('article_new') }}">Create new</a>
+    </div>
 {% endblock %}

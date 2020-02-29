@@ -122,6 +122,64 @@ body{
     color: #4b6584;
 }
 
+.img-presentation{
+    top: 0;
+    left: 0;
+    background-image: url("https://images.alphacoders.com/852/852395.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-programme{
+    top: 0;
+    left: 0;
+    background-image: url("https://media.collegedesbernardins.fr/content/formation/RDV-EC/1H1L%20taxo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-blog{
+    top: 0;
+    left: 0;
+    background-image: url("https://images.alphacoders.com/852/852395.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.img-contact{
+    top: 0;
+    left: 0;
+    background-image: url("https://www.vwfs.co.in/contact-us/_jcr_content/stage.xxl.jpg/Contact%20us-%202-1%20-%203000%20px%20X%201500px.jpg ");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 100%;
+    height: 350px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title-page{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: tommy,sans-serif;
+    font-size: 48px;
+    color: white;
+    padding-top: 150px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
 #footer{
     height: 75px;
     background-color: #20bf6b;
@@ -133,3 +191,4 @@ body{
     font-family: tommy, sans-serif;
     font-size: 16px;
 }
+
